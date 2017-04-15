@@ -20,7 +20,7 @@ type ApiUrl = String
 
 credentials :: Config -> Credential
 credentials config =
-  (username config, password config)
+  (sendToReaderUsername config, sendToReaderPassword config)
 
 
 sendToKindleUrl :: Credential -> ApiUrl

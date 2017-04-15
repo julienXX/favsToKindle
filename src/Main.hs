@@ -23,12 +23,12 @@ main = do
       do putStrLn("Unable to parse config.json:");
          BL.putStr(configData)
     Just config ->
-      printFavsUrls config user;
+      sendToKindle config "http://www.filfre.net/2017/04/the-640-k-barrier/";
 
 
 printFavsUrls :: Config -> String -> IO ()
 printFavsUrls config user = do
-  let (myCredential, myOauthApp) = credentials config
+  let (myCredential, myOauthApp) = Twitter.credentials config
   req <- HTTP.parseRequest $ favoritesUrl user
   signedReq <- signOAuth myOauthApp myCredential req
   m <- HTTP.newManager defaultManagerSettings

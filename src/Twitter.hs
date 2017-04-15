@@ -38,11 +38,11 @@ favoritesUrl =
 credentials :: Config -> (Credential, OAuth)
 credentials config =
   let credential = newCredential
-                   (BUTF8.fromString $ apiKey config)
-                   (BUTF8.fromString $ apiSecret config)
+                   (BUTF8.fromString $ twitterAccessToken config)
+                   (BUTF8.fromString $ twitterAccessTokenSecret config)
       oauth = newOAuth
             { oauthServerName = "api.twitter.com"
-            , oauthConsumerKey = BUTF8.fromString $ consumerKey config
-            , oauthConsumerSecret = BUTF8.fromString $ consumerSecret config
+            , oauthConsumerKey = BUTF8.fromString $ twitterConsumerKey config
+            , oauthConsumerSecret = BUTF8.fromString $ twitterConsumerSecret config
             }
   in (credential, oauth)
