@@ -4,6 +4,7 @@ module Main where
 
 import Config
 import Twitter
+import Kindle
 
 import System.Environment
 import Web.Authenticate.OAuth
