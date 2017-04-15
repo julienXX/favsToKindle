@@ -2,7 +2,7 @@
 
 module Config where
 
-import qualified Data.Aeson as JSON
+import Data.Aeson
 import GHC.Generics
 
 data Config = Config { apiKey         :: String
@@ -11,4 +11,4 @@ data Config = Config { apiKey         :: String
                      , consumerSecret :: String
                      } deriving (Show, Generic)
 
-instance JSON.FromJSON Config
+instance FromJSON Config

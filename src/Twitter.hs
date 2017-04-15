@@ -2,20 +2,14 @@
 
 module Twitter where
 
+import Config
+
 import Web.Authenticate.OAuth
 import GHC.Generics
 
 import qualified Data.Aeson             as JSON
 import qualified Data.ByteString        as B
 import qualified Data.ByteString.UTF8   as BUTF8
-
-data Config = Config { apiKey         :: String
-                     , apiSecret      :: String
-                     , consumerKey    :: String
-                     , consumerSecret :: String
-                     } deriving (Show, Generic)
-
-instance JSON.FromJSON Config
 
 data Tweet = Tweet { entities :: Entities } deriving (Show, Generic)
 data Entities = Entities { urls :: [Url] } deriving (Show, Generic)

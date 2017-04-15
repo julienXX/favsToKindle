@@ -2,7 +2,9 @@
 
 module Main where
 
+import Config
 import Twitter
+
 import System.Environment
 import Web.Authenticate.OAuth
 import qualified Data.Aeson as JSON
