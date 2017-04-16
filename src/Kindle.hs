@@ -18,9 +18,9 @@ type Url = String
 type ApiUrl = String
 
 
-credentials :: Config -> Credential
+credentials :: SendToReaderConfig -> Credential
 credentials config =
-  (sendToReaderUsername config, sendToReaderPassword config)
+  (username config, password config)
 
 
 sendToKindleUrl :: Credential -> ApiUrl
@@ -28,7 +28,7 @@ sendToKindleUrl (username, password) =
   "https://sendtoreader.com/api/send/?username=" ++ username ++ "&password=" ++ password ++ "&url="
 
 
-sendToKindle :: Config -> Url -> IO()
+sendToKindle :: SendToReaderConfig -> Url -> IO()
 sendToKindle config url = do
   let post_url = sendToKindleUrl (credentials config) ++ url
   manager <- HTTP.newManager defaultManagerSettings

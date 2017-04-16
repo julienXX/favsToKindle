@@ -1,6 +1,12 @@
 {
-  "apiKey": "",
-  "apiSecret": "",
-  "consumerKey": "",
-  "consumerSecret": ""
+  "twitter": {
+    "accessToken": "",
+    "accessTokenSecret": "",
+    "consumerKey": "",
+    "consumerSecret": ""
+  },
+  "send_to_reader": {
+    "username": "",
+    "password": ""
+  }
 }

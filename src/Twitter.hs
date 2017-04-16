@@ -35,14 +35,14 @@ favoritesUrl =
   (++) "https://api.twitter.com/1.1/favorites/list.json?count=200&screen_name="
 
 
-credentials :: Config -> (Credential, OAuth)
+credentials :: TwitterConfig -> (Credential, OAuth)
 credentials config =
   let credential = newCredential
-                   (BUTF8.fromString $ twitterAccessToken config)
-                   (BUTF8.fromString $ twitterAccessTokenSecret config)
+                   (BUTF8.fromString $ accessToken config)
+                   (BUTF8.fromString $ accessTokenSecret config)
       oauth = newOAuth
             { oauthServerName = "api.twitter.com"
-            , oauthConsumerKey = BUTF8.fromString $ twitterConsumerKey config
-            , oauthConsumerSecret = BUTF8.fromString $ twitterConsumerSecret config
+            , oauthConsumerKey = BUTF8.fromString $ consumerKey config
+            , oauthConsumerSecret = BUTF8.fromString $ consumerSecret config
             }
   in (credential, oauth)
